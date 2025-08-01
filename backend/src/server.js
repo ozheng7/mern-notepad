@@ -7,8 +7,14 @@
 // module syntax
 import express from "express";
 import notesRoutes from "./routes/notesRoutes.js";
+import { connectDB } from "./config/db.js";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const app = express();
+
+connectDB();
 
 // if request starts with this, then use this file
 app.use("/api/notes", notesRoutes);
