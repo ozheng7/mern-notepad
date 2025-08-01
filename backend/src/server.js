@@ -13,9 +13,12 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5001
+const PORT = process.env.PORT || 5001;
 
 connectDB();
+
+// middleware
+app.use(express.json());
 
 // if request starts with this, then use this file
 app.use("/api/notes", notesRoutes);
