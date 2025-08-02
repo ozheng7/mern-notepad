@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import NoteCard from "../components/NoteCard";
 import { useState } from "react";
 import { useEffect } from "react";
 import RateLimitedUI from "../components/RateLimitedUI";
@@ -47,9 +48,7 @@ export const HomePage = () => {
         {notes.length > 0 && !isRateLimited && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {notes.map((note) => (
-              <div>
-                {note.title} | {note.content}
-              </div>
+              <NoteCard key={note._id} note={note} />
             ))}
           </div>
         )}
