@@ -11,6 +11,7 @@ import { connectDB } from "./config/db.js";
 import dotenv from "dotenv";
 import rateLimiter from "./middleware/ratelimiter.js";
 import { connect } from "mongoose";
+import cors from "cors";
 
 dotenv.config();
 
@@ -18,6 +19,11 @@ const app = express();
 const PORT = process.env.PORT || 5001;
 
 // middleware
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+  })
+);
 app.use(express.json());
 app.use(rateLimiter);
 // in between the client and the server (req)
