@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 const App = () => {
   return (
     <div className="relative h-full w-full">
-      <div className="absolute inset-0 -z-10 h-full w-full items-center px-5 py-24 [background:radial-gradient(135%_135%_at_50%_10%,#000_60%,#00FF9D40_100%)]" />
+      <div className="absolute top-0 z-[-2] h-screen w-screen bg-[#000000] bg-[radial-gradient(#ffffff33_1px,#00091d_1px)] bg-[size:20px_20px]" />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/create" element={<CreatePage />} />
