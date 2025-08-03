@@ -8,6 +8,7 @@ import api from "../lib/axios";
 import toast from "react-hot-toast";
 import { DiscAlbum } from "lucide-react";
 import { isRouteErrorResponse } from "react-router";
+import NotesNotFound from "../components/NotesNotFound";
 
 export const HomePage = () => {
   const [isRateLimited, setIsRateLimited] = useState(false);
@@ -45,10 +46,12 @@ export const HomePage = () => {
         {loading && (
           <div className="text-center text-primary py-10">Loading notes...</div>
         )}
+
+        {notes.length === 0 && !isRateLimited && <NotesNotFound />}
         {notes.length > 0 && !isRateLimited && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {notes.map((note) => (
-              <NoteCard key={note._id} note={note} />
+              <NoteCard key={note._id} note={note} setNotes={setNotes} />
             ))}
           </div>
         )}
